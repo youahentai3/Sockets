@@ -39,7 +39,7 @@ int main(int argc,char** argv)
 
     struct sockaddr_in client;
     socklen_t client_addrlength=sizeof(client);
-    sleep(60);
+    //sleep(60);
     int connfd=accept(sock,(struct sockaddr*)&client,&client_addrlength);
 
     if(connfd<0)
