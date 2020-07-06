@@ -15,14 +15,14 @@ int main(int argc,char** argv)
         cout<<"error input"<<endl;
     }
 
-    const string ip=argv[1];
+    const char* ip=argv[1];
     int port=atoi(argv[2]);
 
     struct sockaddr_in server_address;
     bzero(&server_address,sizeof(sockaddr));
     server_address.sin_family=AF_INET;
-    inet_pton(AF_NET,ip.c_str(),&server_address.sin_addr);
-    server_address.sin_port=htonts(port);
+    inet_pton(AF_NET,ip,&server_address.sin_addr);
+    server_address.sin_port=htons(port);
 
     int sockfd=socket(PF_INET,SOCK_STREAM,0);
     assert(sockfd>=0);
@@ -32,11 +32,11 @@ int main(int argc,char** argv)
     }
     else
     {
-        const string oob_data="abc";
-        const string normal_data="123";
-        send(sockfd,normal_data.c_str(),normal_data.length(),0);
-        send(sockfd,oob_data.c_str,oob_data.length(),MSG_OOB);
-        send(sockfd,normal_data.c_str(),normal_data.length(),0);
+        const char* oob_data="abc";
+        const char* normal_data="123";
+        send(sockfd,normal_data,strlen(normal_data),0);
+        send(sockfd,oob_data,strlen(oob_data0),MSG_OOB);
+        send(sockfd,normal_data,strlen(normal_data),0);
     }
     close(sockfd);
 
