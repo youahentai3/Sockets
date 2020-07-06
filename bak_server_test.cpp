@@ -20,6 +20,8 @@ int main(int argc,char** argv)
     const char* ip=argv[1];
     int port=atoi(argv[2]);
 
+    cout<<ip<<" "<<port<<endl;
+
     struct sockaddr_in address;
     bzero(&address,sizeof(address));
     address.sin_family=AF_INET;
@@ -34,9 +36,10 @@ int main(int argc,char** argv)
 
     struct sockaddr_in client;
     socklen_t client_addrlength=sizeof(client);
+    sleep(60);
     int connfd=accept(sock,(struct sockaddr*)&client,&client_addrlength);
 
-    if(confd<0)
+    if(connfd<0)
     {
         cout<<"error"<<endl;
     }
