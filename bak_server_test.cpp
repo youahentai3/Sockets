@@ -54,15 +54,15 @@ int main(int argc,char** argv)
 
         ret=recv(connfd,buffer,BUF_SIZE-1,0);
         string rec=buffer;
-        cout<<ret<<" "<<rec;
+        cout<<ret<<" "<<rec<<endl;
 
         ret=recv(connfd,buffer,BUF_SIZE-1,MSG_OOB);
         rec=buffer;
-        cout<<ret<<" "<<rec;
+        cout<<ret<<" "<<rec<<endl;
 
         ret=recv(connfd,buffer,BUF_SIZE-1,0);
         rec=buffer;
-        cout<<ret<<" "<<rec;
+        cout<<ret<<" "<<rec<<endl;
 
         close(connfd);
     }
