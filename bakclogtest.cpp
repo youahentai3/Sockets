@@ -4,7 +4,7 @@
 #include <arpa/inet.h>
 #include <cassert>
 #include <cstring>
-#inlcude <unistd.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -21,7 +21,8 @@ int main(int argc,char** argv)
     struct sockaddr_in server_address;
     bzero(&server_address,sizeof(sockaddr));
     server_address.sin_family=AF_INET;
-    inet_pton(AF_NET,ip,&server_address.sin_addr);
+    inet_pton(AF_NET,ip.c_str(),&server_address.sin_addr);
+    server_address.sin_port=htonts(port);
 
     int sockfd=socket(PF_INET,SOCK_STREAM,0);
     assert(sockfd>=0);
