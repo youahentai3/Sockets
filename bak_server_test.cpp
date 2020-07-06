@@ -57,7 +57,7 @@ int main(int argc,char** argv)
         cout<<ret<<" "<<rec<<endl;
 
         memset(buffer,0,BUF_SIZE);
-        ret=recv(connfd,buffer,BUF_SIZE-1,MSG_OOB);
+        ret=recv(connfd,buffer,BUF_SIZE-1,0);
         rec=buffer;
         cout<<ret<<" "<<rec<<endl;
 
